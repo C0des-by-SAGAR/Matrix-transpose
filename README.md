@@ -1,85 +1,70 @@
 # Matrix-transpose
-Thank you for sharing the link! Let's get started with documenting the code.
+# Matrix Transposition Program
 
-**Title: Matrix Transpose**
+This C program allows you to enter a matrix and then calculates its transpose. The program takes the number of rows and columns as input, fills the matrix with user-provided values, and then computes the transpose of the matrix.
 
-**Description:**
-This program demonstrates how to find the transpose of a matrix in the C programming language. The transpose of a matrix is obtained by interchanging its rows with columns.
+## Prerequisites
 
-**Code:**
-```c
-#include <stdio.h>
+Before you can use this program, ensure that you have a C compiler installed on your system, such as GCC, for compiling and running C programs.
 
-#define ROWS 3
-#define COLS 3
+## How to Use
 
-void transposeMatrix(int matrix[ROWS][COLS], int transposedMatrix[COLS][ROWS]) {
-    int i, j;
-    
-    for (i = 0; i < ROWS; i++) {
-        for (j = 0; j < COLS; j++) {
-            transposedMatrix[j][i] = matrix[i][j];
-        }
-    }
-}
+1. Compile the program using your C compiler. For example, using GCC, you can run the following command:
 
-void displayMatrix(int matrix[ROWS][COLS]) {
-    int i, j;
-    
-    for (i = 0; i < ROWS; i++) {
-        for (j = 0; j < COLS; j++) {
-            printf("%d ", matrix[i][j]);
-        }
-        printf("\n");
-    }
-}
+   ```bash
+   gcc matrix_transpose.c -o matrix_transpose
+   ```
 
-int main() {
-    int matrix[ROWS][COLS] = {
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
-    };
-    
-    int transposedMatrix[COLS][ROWS];
-    
-    printf("Original Matrix:\n");
-    displayMatrix(matrix);
-    
-    transposeMatrix(matrix, transposedMatrix);
-    
-    printf("\nTransposed Matrix:\n");
-    displayMatrix(transposedMatrix);
-    
-    return 0;
-}
+2. Run the compiled program:
+
+   ```bash
+   ./matrix_transpose
+   ```
+
+3. Follow the on-screen prompts to enter the number of rows and columns of your matrix, as well as the matrix elements.
+
+4. The program will display the original matrix and its transpose.
+
+## Code Explanation
+
+- The program starts by including necessary header files, `stdio.h` for input/output and `conio.h` (not standard) for the `getch()` function.
+- The `main()` function is the entry point of the program.
+- It prompts the user to enter the number of rows and columns for matrix A.
+- It then initializes a 2D array `matA` with the specified dimensions.
+- The user is prompted to input elements for matrix A.
+- The program displays matrix A and calculates its transpose, storing it in the `matT` array.
+- Finally, the program prints the transpose of matrix A and waits for a key press using `getch()` before exiting.
+
+## Sample Output
+
+Here's what a sample run of the program might look like:
+
+```
+Enter the no. of rows and columns of matrix A:
+3 2
+
+Enter the elements of matrix A:
+        A[0][0]= 1
+        A[0][1]= 2
+
+        A[1][0]= 3
+        A[1][1]= 4
+
+        A[2][0]= 5
+        A[2][1]= 6
+
+Matrix A:
+        1       2
+        3       4
+        5       6
+
+Transpose of matrix A:
+        1       3       5
+        2       4       6
 ```
 
-**Explanation:**
+## Note
 
-1. The program starts by including the necessary header file, `stdio.h`, which provides functions for input and output operations.
-
-2. The `#define` directive is used to define constants `ROWS` and `COLS` to represent the number of rows and columns in the matrix, respectively.
-
-3. The `transposeMatrix` function is defined to calculate the transpose of the given matrix. It takes two parameters: the `matrix` to be transposed and the `transposedMatrix` where the result will be stored.
-
-4. Inside the `transposeMatrix` function, two nested `for` loops are used to iterate over each element of the matrix. The value at `matrix[i][j]` is assigned to `transposedMatrix[j][i]`, effectively interchanging the rows and columns.
-
-5. The `displayMatrix` function is defined to print the elements of the matrix. It takes a single parameter, the matrix to be displayed.
-
-6. Inside the `displayMatrix` function, two nested `for` loops are used to iterate over each element of the matrix. The value at `matrix[i][j]` is printed using the `printf` function.
-
-7. In the `main` function, a sample matrix is declared and initialized with values.
-
-8. The original matrix is displayed using the `displayMatrix` function.
-
-9. The `transposeMatrix` function is called, passing the original matrix and an empty `transposedMatrix` as arguments.
-
-10. The transposed matrix is displayed using the `displayMatrix` function.
-
-11. Finally, the program returns 0 to indicate successful execution.
-
-**Usage:**
-1. Clone the repository using `git clone https://github.com/C0des-by-SAGAR/Matrix-transpose.git`.
-2. Open the project in a C development environment or compile the code using a C compiler.
-3. Run the program and observe the output.
+- This program assumes that the user will provide valid input for the number of rows and columns, as well as integer values for the matrix elements.
+- The `conio.h` library and `getch()` function are used for waiting for a key press at the end of the program. This is a non-standard feature and may not be available on all systems.
+- It's recommended to add error handling to handle invalid user input or edge cases for more robust functionality.
